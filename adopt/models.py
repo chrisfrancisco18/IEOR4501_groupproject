@@ -1,4 +1,4 @@
-from django.db import models
+rom django.db import models
 
 class Squirrel(models.Model):
     X=models.FloatField()
