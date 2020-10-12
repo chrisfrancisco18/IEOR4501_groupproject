@@ -18,11 +18,12 @@ def map(request):
 
 # Second view
 # see Squirrel Tracker Doc
-def sightings(request, squirrel.id):
-    squirrel = get_object_or_404(Squirrel, pk=squirrel.id)
+def sightings(request):
+    # this will list all squirrel sightings
+    squirrels = Squirrel.objects.all()
     
     context = {
-       'squirrel':squirrel, 
+       'squirrels':squirrels, 
     }
     
     return render(request, 'adopt/sightings.html', context)
