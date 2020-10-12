@@ -1,5 +1,16 @@
 <html>
   <body>
-    <li></li>
+    <ul>
+      {% for squirrel in squirrels %}
+      <p>
+        <li>{{ squirrel.Unique_Squirrel_ID }}</li>
+        <li>{{ squirrel.Date }}</li>
+        <li><a href="{% url 'adopt:unique-squirrel-id' squirrel.id %}">Link to this particular sighting</a></li>
+      </p>
+      {% endfor %}
+      <p>
+        <a href="{% url 'adopt:add' %}">Create a new sighting</a>
+      </p>
+    </ul>
   </body>
 </html>
