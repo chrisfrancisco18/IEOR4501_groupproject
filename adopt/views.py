@@ -8,7 +8,7 @@ from .models import Squirrel
 def index(request):
     return render(request, 'adopt/index.html',{})
 
-# First view 
+# First view /map
 # see Squirrel Tracker Doc
 """
 def map(request):
@@ -16,7 +16,7 @@ def map(request):
     return render(request, 'adopt/map.html', context)
 """
 
-# Second view
+# Second view /sightings
 # see Squirrel Tracker Doc
 def sightings(request):
     # this will list all squirrel sightings
@@ -27,4 +27,18 @@ def sightings(request):
     }
     
     return render(request, 'adopt/sightings.html', context)
+    
+# Third view /sightings/<unique-squirrel-id>
+# see Squirrel Tracker Doc
+def detail(request, squirrel_id):
+    squirrel = get_object_or_404(Squirrel, pk=squirrel_id)
+    
+    context = {
+        'squirrel':squirrel,
+    }
+    
+    return render(request, 'adopt/detail.html', context)
+
+# Fourth view /sightings/add
+# see Squirrel Tracker Doc
     
