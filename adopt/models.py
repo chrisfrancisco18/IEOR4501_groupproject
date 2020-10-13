@@ -38,13 +38,13 @@ class Squirrel(models.Model):
     )
     """
     Date=models.CharField(
-        max_length=9
+        max_length=9,
         help_text=_("Date"),
     )
     
     Hectare_squirrel_nunber=models.IntegerField(
         Blank=True,
-        help_text=_("Hectare Number")
+        help_text=_("Hectare Number"),
     )
     
     ADULT = 'Adult'
