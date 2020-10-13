@@ -4,21 +4,20 @@ from django.utils.translation import gettext as _
 # Create your models here
 
 class Squirrel(models.Model):
-    X=models.FloatField(
-        help_text=_("Latitude"),
-    )
-    Y=models.FloatField(
-        help_text=_("Longitude"),
-    )
+    Latitude=models.FloatField(help_text=_("Latitude"))
+    Longitude=models.FloatField(help_text=_("Longitude"))
+    
     Unique_Squirrel_ID=models.CharField(
         max_length=14,
-        help_text=_("The Unique ID of Squirrel Sighting"),
-    )
-    Hectare=models.CharField(
-        max_length=4,
+        help_text=_("The Unique ID"),
     )
     
-    # Only two choice for Shift
+    Hectare=models.CharField(
+        blank=True,
+        max_length=4,
+        help_text=_("Hectare"),
+    )
+    
     AM = 'AM'
     PM = 'PM'
     
@@ -33,13 +32,19 @@ class Squirrel(models.Model):
         default=AM,
     )
     
+    """
+    Date=models.DateField(
+        help_text=_("Date"),
+    )
+    """
     Date=models.CharField(
         max_length=9
         help_text=_("Date"),
     )
     
     Hectare_squirrel_nunber=models.IntegerField(
-        help_text=_("Hectare Number"),
+        Blank=True,
+        help_text=_("Hectare Number")
     )
     
     ADULT = 'Adult'
@@ -55,7 +60,7 @@ class Squirrel(models.Model):
     Age=models.CharField(
         blank=True,
         max_length=20,
-        help_text=_("Sex"),
+        help_text=_("Age"),
         choices=AGE_CHOICES,
         default=OTHER,
     )
@@ -73,22 +78,56 @@ class Squirrel(models.Model):
     )
     
     Combi_Fur_Color=models.CharField(
-            max_length=40)
+        blank=True,
+        max_length=40,
+        help_text=_("Combine Fur Color"),
+    )
+    
     Color_Notes=models.CharField(
-            max_length=100)
+        blank=True,
+        max_length=40,
+        help_text=_("Color Note"),
+    )
+    
+    AG = 'Above Ground'
+    GP = 'Ground Plane'
+    OTHER = ''
+    
+    LOCATION_CHOICES = [
+        (AG, _('Above Ground')),
+        (GP, _('Ground Plane')),
+        (OTHER, _('')),
+    ]
+    
     Location=models.CharField(
-            max_length=20)
+        max_length=20,
+        help_text=_("Locations"),
+        choices=LOCATION_CHOICES,
+        default=OTHER,
+    )
+    
     Above_Ground=models.CharField(
-            max_length=20)
-    Specific_Location=models.CharField(
-            max_length=100)
+        Blank=True,
+        max_length=20,
+        help_text=_("How Far from Ground Please Put The Number. If Found On The Ground Please Put FALSE"),
+    )
+    
+    Specific_Location=models.TextField(
+        blank=True,
+        help_text=_("Specific Location"),
+    )
+    
     Running=models.BooleanField()
     Chasing=models.BooleanField()
     Climbing=models.BooleanField()
     Eating=models.BooleanField()
     Foraging=models.BooleanField()
-    Other_Activ=models.CharField(
-            max_length=100)
+    
+    Other_Activ=models.TextField(
+        Blank=True,
+        help_text=_("Other Activites"),
+    )
+    
     Kuks=models.BooleanField()
     Quaas=models.BooleanField()
     Moans=models.BooleanField()
@@ -97,8 +136,11 @@ class Squirrel(models.Model):
     Approaches=models.BooleanField()
     Indifferent=models.BooleanField()
     Runs_from=models.BooleanField()
+    
     Other_Inter=models.CharField(
-            max_length=100)
+        Blank=True,
+        help_text=_("Other Interactions"),
+    )
     Lat_Long=models.CharField(
             max_length=100)
     
