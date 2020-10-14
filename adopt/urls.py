@@ -7,5 +7,5 @@ app_name = 'adopt'
 urlpatterns = [
         #path('', views.index),
         path('sightings/', views.sightings),
-        path('<slug:Unique_Squirrel_ID>/', views.detail, name='detail'),
+        path('<int:squirrel.id>/', views.detail, name='detail'),
         ]
