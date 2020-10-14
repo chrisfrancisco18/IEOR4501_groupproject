@@ -4,13 +4,13 @@ from . import views
 
 app_name = 'adopt'
 
-urlpatterns = [
-        # path('', views.index),
-        path('sightings/', include(extra_patterns)),
-]
-
 extra_patterns = [
         path('', views.sightings),
         path('<int:squirrel_id>/', views.detail, name='detail'),
         # path('<slug:squirrel_Unique_Squirrel_ID>/', views.detail, name='detail'),
+]
+
+urlpatterns = [
+        # path('', views.index),
+        path('sightings/', include(extra_patterns)),
 ]
