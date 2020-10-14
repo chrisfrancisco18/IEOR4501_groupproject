@@ -18,7 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # this is for the name of url
-    # should we change adopt to something else
     path('adopt/', include('adopt.urls')),
 ]
