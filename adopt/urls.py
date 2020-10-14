@@ -6,7 +6,7 @@ app_name = 'adopt'
 
 urlpatterns = [
         # path('', views.index),
-        path('sightings/', include(extrapatterns)),
+        path('sightings/', include(extra_patterns)),
 ]
 
 extra_patterns = [
