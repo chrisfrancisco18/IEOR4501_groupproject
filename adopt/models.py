@@ -43,7 +43,7 @@ class Squirrel(models.Model):
     )
     
     Hectare_squirrel_nunber=models.IntegerField(
-        Blank=True,
+        blank=True,
         help_text=_("Hectare Number"),
     )
     
