@@ -9,7 +9,7 @@ urlpatterns = [
         path('sightings/', include(extrapatterns)),
 ]
 
-extrapatterns = [
+extra_patterns = [
         path('', views.sightings),
         path('<int:squirrel_id>/', views.detail, name='detail'),
         # path('<slug:squirrel_Unique_Squirrel_ID>/', views.detail, name='detail'),
