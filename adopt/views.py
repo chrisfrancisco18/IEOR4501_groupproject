@@ -32,7 +32,7 @@ def sightings(request):
 # see Squirrel Tracker Doc
 def detail(request, Squirrel_ID):
     # this will provide info for particular view (ID)
-    squirrel = get_object_or_404(Squirrel, Squirrel.Unique_Squirrel_ID=Squirrel_ID)
+    squirrel = get_object_or_404(Squirrel, fieldname=Squirrel_ID)
     
     context = {
         'squirrel':squirrel,
