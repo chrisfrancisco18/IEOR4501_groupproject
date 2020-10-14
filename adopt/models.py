@@ -16,7 +16,7 @@ class Squirrel(models.Model):
     
     # use Unique Squirrel ID as a primary key
     Unique_Squirrel_ID=models.SlugField(
-        primary_key=True
+        primary_key=True,
         max_length=14,
         help_text=_("The Unique ID"),
     )
