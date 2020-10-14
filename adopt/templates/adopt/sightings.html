@@ -7,12 +7,13 @@
       <p>
         <li>{{ squirrel.Unique_Squirrel_ID }}</li>
         <li>{{ squirrel.Date }}</li>
-        <li><a href="{% url 'adopt:unique-squirrel-id' squirrel.id %}">Link to this particular sighting</a></li>
+        <li><a href="{% url 'adopt:detial' squirrel.id %}">Link to this particular sighting</a></li>
       </p>
       {% endfor %}
     </ul>
     <p>
-      <a href="{% url 'adopt:add' %}">Create a new sighting</a>
+      <!-- comment this out for now until we finish creating html file for /sighting/add/ -->
+      <!--<a href="{% url 'adopt:add' %}">Create a new sighting</a>-->
     </p>
   </body>
 </html>
