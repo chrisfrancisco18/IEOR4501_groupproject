@@ -7,19 +7,19 @@ class Squirrel(models.Model):
     Latitude=models.FloatField(help_text=_("Latitude"))
     Longitude=models.FloatField(help_text=_("Longitude"))
     
+    """
     Unique_Squirrel_ID=models.CharField(
         max_length=14,
         help_text=_("The Unique ID"),
-    )
-    
+    ) 
     """
+    
     # use Unique Squirrel ID as a primary key
     Unique_Squirrel_ID=models.SlugField(
         primary_key=True
         max_length=14,
         help_text=_("The Unique ID"),
     )
-    """
     
     Hectare=models.CharField(
         blank=True,
