@@ -7,8 +7,6 @@
       <p>
         <li>{{ squirrel.Unique_Squirrel_ID }}</li>
         <li>{{ squirrel.Date }}</li>
-        <!-- for fixing bud -->
-        <li>{{ squirrel.id }}</li>
         <li><a href="{% url 'adopt:detail' squirrel.Unique_Squirrel_ID %}">Link to this particular sigihting</a></li>
       </p>
       {% endfor %}
