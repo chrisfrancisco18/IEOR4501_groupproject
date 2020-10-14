@@ -107,7 +107,7 @@ class Squirrel(models.Model):
     )
     
     Above_Ground=models.CharField(
-        Blank=True,
+        blank=True,
         max_length=20,
         help_text=_("How Far from Ground Please Put The Number. If Found On The Ground Please Put FALSE"),
     )
@@ -124,7 +124,7 @@ class Squirrel(models.Model):
     Foraging=models.BooleanField()
     
     Other_Activ=models.TextField(
-        Blank=True,
+        blank=True,
         help_text=_("Other Activites"),
     )
     
@@ -138,7 +138,7 @@ class Squirrel(models.Model):
     Runs_from=models.BooleanField()
     
     Other_Inter=models.CharField(
-        Blank=True,
+        blank=True,
         help_text=_("Other Interactions"),
     )
     Lat_Long=models.CharField(
