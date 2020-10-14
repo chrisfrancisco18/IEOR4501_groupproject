@@ -139,10 +139,11 @@ class Squirrel(models.Model):
     
     Other_Inter=models.CharField(
         blank=True,
+        max_length=20,
         help_text=_("Other Interactions"),
     )
-    Lat_Long=models.CharField(
-            max_length=100)
+    
+    Lat_Long=models.CharField(max_length=100)
     
     def __str__(self):
         return self.Unique_Squirrel_ID
