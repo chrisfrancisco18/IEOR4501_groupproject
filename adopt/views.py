@@ -30,9 +30,9 @@ def sightings(request):
     
 # Third view /sightings/<unique-squirrel-id>
 # see Squirrel Tracker Doc
-def detail(request, squirrel_id):
+def detail(request, Unique_Squirrel_ID):
     # this will provide info for particular view (ID)
-    squirrel = get_object_or_404(Squirrel, pk=squirrel_id)
+    squirrel = get_object_or_404(Squirrel, pk=Unique_Squirrel_ID)
     
     context = {
         'squirrel':squirrel,
