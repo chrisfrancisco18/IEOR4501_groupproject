@@ -41,5 +41,16 @@ def detail(request, squirrel_id):
     
     return render(request, 'adopt/detail.html', context)
 
+"""
+def detail(request, uni_sqr_id):
+    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID__exact=uni_sqr_id)
+    
+    context = {
+        'squirrel':squirrel,
+    }
+    
+    return render(request, 'adopt/detail.html', context)
+"""
+
 # Fourth view /sightings/add
 # see Squirrel Tracker Doc
