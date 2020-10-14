@@ -12,6 +12,15 @@ class Squirrel(models.Model):
         help_text=_("The Unique ID"),
     )
     
+    """
+    # use Unique Squirrel ID as a primary key
+    Unique_Squirrel_ID=models.SlugField(
+        primary_key=True
+        max_length=14,
+        help_text=_("The Unique ID"),
+    )
+    """
+    
     Hectare=models.CharField(
         blank=True,
         max_length=4,
@@ -143,7 +152,10 @@ class Squirrel(models.Model):
         help_text=_("Other Interactions"),
     )
     
-    Lat_Long=models.CharField(max_length=100)
+    Lat_Long=models.CharField(
+        blank=True,
+        max_length=100,
+    )
     
     def __str__(self):
         return self.Unique_Squirrel_ID
