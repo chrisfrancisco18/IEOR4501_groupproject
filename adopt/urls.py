@@ -5,7 +5,7 @@ from . import views
 app_name = 'adopt'
 
 extra_patterns = [
-        path('', views.sightings),
+        path('', views.sightings, name='sightings'),
         # path('<int:squirrel_id>/', views.detail, name='detail'),
         path('<slug:Unique_Squirrel_ID>/', views.squirrel_detail, name='detail'),
 ]
