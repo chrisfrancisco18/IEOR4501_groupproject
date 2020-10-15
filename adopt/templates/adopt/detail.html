@@ -1,14 +1,55 @@
-<!DOCTYPE html>
+{% extends 'adopt/base.html' %}
 
-<html>
-  <body>
-    <ul>
-      <li>Latitude: {{ squirrel.Latitude }}</li>
-      <li>Longitude: {{ squirrel.Longitude }}</li>
-      <li>Unique Squirrel ID: {{ squirrel.Unique_Squirrel_ID }}</li>
-      <li>Shift: {{ squirrel.Shift }}</li>
-      <li>Date Found: {{ squirrel.Date }}</li>
-      <li>Age: {{ squirrel.Age }}</li>
-    </ul>
-  </body>
-</html>
+{% load static %}
+
+{% block title %} - {{ pet.name }}{% endblock %}
+
+{% block main %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card mb-8 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+                <div class="pet-name">
+                  <strong>{{ squirrel.Unique_Squirrel_ID }}</strong>
+                </div>
+                <div>
+                  <span class="text-muted font-italic">Latitude:</span>
+                  <span>
+                    {{ squirrel.Latitude }}
+                  </span>
+                </div>
+                <div>
+                  <span class="text-muted font-italic">Longitude:</span>
+                  <span>
+                    {{ squirrel.Longitude }}
+                  </span>
+                </div>
+                <div>
+                  <span class="text-muted font-italic">Date Found:</span>
+                  <span>
+                    {{ squirrel.Date }}
+                  </span>
+                </div>
+                <div>
+                  <span class="text-muted font-italic">Shift:</span>
+                  <span>
+                    {{ squirrel.Shift }}
+                  </span>
+                </div>
+                <div>
+                  <span class="text-muted font-italic">Age:</span>
+                  <span>
+                    {{ squirrel.Age }}
+                  </span>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
