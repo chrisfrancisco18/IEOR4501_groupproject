@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse #We could modify this to HttpResponseRedirect
+from .forms import NameForm
+
 
 from .models import Squirrel
 
@@ -54,3 +56,20 @@ def detail(request, uni_sqr_id):
 
 # Fourth view /sightings/add
 # see Squirrel Tracker Doc
+"""
+def add_sighting(request):
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            return HttpResponse('//')
+
+    else:
+        form = NameForm()
+
+    return render(request, 'add.html', {'form': form})    #need to check this line
+
+"""
+
+#Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
+"""
+"""
