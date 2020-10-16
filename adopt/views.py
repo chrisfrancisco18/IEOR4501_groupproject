@@ -21,7 +21,7 @@ def map(request):
     else:  
        sightings = items
     # for testing
-    print(sightings)
+    # print(sightings)
     # sightings will be used in map.html
     context = {
         'sightings':sightings,
