@@ -13,10 +13,15 @@ def index(request):
 # First view /map
 # see Squirrel Tracker Doc
 def map(request):
-    squirrels = Squirrel.objects.all()
+    # we only plot 100 sightings
+    # we'll randomly select 100 sightings unless there are less than a hundred
+    if Squirrel.objects.count() > 100:
+        sighting = random.sample(Squirrel.objects.all(), 100)
+    else:
+        sightings = Squirrel.objects.all()
     
     context = {
-       'squirrels':squirrels, 
+       'sighting':sightinfs, 
     }
     
     return render(request, 'adopt/map.html', context)
