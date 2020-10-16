@@ -12,5 +12,6 @@ extra_patterns = [
 
 urlpatterns = [
         # path('', views.index),
+        path('map/', views.map),
         path('sightings/', include(extra_patterns)),
 ]
