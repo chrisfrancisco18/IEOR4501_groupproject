@@ -61,6 +61,20 @@ def squirrel_detail(request, uni_sqr_id):
     }
     
     return render(request, 'adopt/detail.html', context)
+
+def squirrel_detail_update(request):
+    if request.method == 'POST':
+        form = NameFormTwo(request.POST)
+        # need to recheck this
+        # see Lecture 8.16 Forms
+        if form.is_valid():
+            return form.save()
+        else:
+            JsonResponse{{'errors':form.errors}, status = 400}
+    else:
+        form = NameFormTwo()
+
+    return render(request, 'add.html', {'form': form})
 """
 
 # Fourth view /sightings/add
@@ -81,4 +95,5 @@ def add_sighting(request):
 
 #Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
 """
+# This one should provide stat
 """
