@@ -4,6 +4,8 @@ from django.utils.translation import gettext as _
 # Create your models here
 
 class Squirrel(models.Model):
+    # I messed up the coordinate X is longitude and Y is latitide
+    # This code has not been fixed yet
     Latitude=models.FloatField(help_text=_("Latitude"))
     Longitude=models.FloatField(help_text=_("Longitude"))
     
