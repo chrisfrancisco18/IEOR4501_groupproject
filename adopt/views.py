@@ -12,11 +12,9 @@ def index(request):
 
 # First view /map
 # see Squirrel Tracker Doc
-"""
 def map(request):
     context = {}
     return render(request, 'adopt/map.html', context)
-"""
 
 # Second view /sightings
 # see Squirrel Tracker Doc
