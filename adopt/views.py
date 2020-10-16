@@ -3,8 +3,8 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse #We could modify this to HttpResponseRedirect
 #from .forms import NameForm
 
-
 from .models import Squirrel
+import random
 
 # Create your views here.
 def index(request):
@@ -13,7 +13,17 @@ def index(request):
 # First view /map
 # see Squirrel Tracker Doc
 def map(request):
-    context = {}
+    # we only plot 100 sightings
+    # we will randomly select 100 sightings unless there are less than 100 sightings
+    items = Squirrel.objects.all()
+    if Squirrel.objects.count() > 100:
+       sighting = random.sample(items, 100)
+    else:  
+       sightings = items
+    # sightings will be used in map.html
+    context = {
+        'sightings':sightings,
+    }
     return render(request, 'adopt/map.html', context)
 
 # Second view /sightings
