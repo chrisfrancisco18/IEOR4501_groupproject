@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.utils.translation import gettext as _
 from .models import Squirrel
 
-class SquirrelForm(Forms.Form):
+class SquirrelForm(forms.Form):
     #class Meta:
         #your_name = forms.CharField(label='Your name', max_length=100)
     sq_lat = forms.FloatField(label='Latitude')
