@@ -32,7 +32,7 @@ class SquirrelForm(ModelForm):
         (OTHER, _('')),
     ]
     sq_age = forms.CharField(
-            blank=True,
+            #blank=True,
             max_length=20,
             #choices=AGE_CHOICES,
             #default=OTHER,
