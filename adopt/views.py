@@ -16,10 +16,10 @@ def map(request):
     # we only plot 100 sightings
     # we will randomly select 100 sightings unless there are less than 100 sightings
     items = Squirrel.objects.all()
-    if Squirrel.objects.count() > 100:
-       sighting = random.sample(items, 100)
-    else:  
-       sightings = items
+    #if Squirrel.objects.count() > 100:
+       #sighting = random.sample(items, 100)
+    #else:  
+    sightings = items
     # for testing
     # print(sightings)
     # sightings will be used in map.html
