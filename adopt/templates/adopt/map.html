@@ -56,7 +56,7 @@
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
         //for testing
-        L.marker([-73.97572498, 40.76970326]).addTo(map);
+        L.marker([-73.97572498, 40.76970326]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.').openPopup();
     </script>
   </body>
 </html>
