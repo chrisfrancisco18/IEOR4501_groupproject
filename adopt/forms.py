@@ -17,7 +17,9 @@ class SquirrelForm(ModelForm):
         (PM, _('PM')),
         ]
         
-    sq_shift =forms.CharField(max_length=3, choices= SHIFT_CHOICES, default=AM)
+    sq_shift =forms.CharField(max_length=3, 
+          #choices= SHIFT_CHOICES, default=AM
+                             )
     sq_date = forms.DateField(auto_now=False, auto_now_add=False)
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
@@ -30,6 +32,6 @@ class SquirrelForm(ModelForm):
     sq_age = forms.CharField(
             blank=True,
             max_length=20,
-            choices=AGE_CHOICES,
-            default=OTHER,
+            #choices=AGE_CHOICES,
+            #default=OTHER,
             )
