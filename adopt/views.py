@@ -94,6 +94,16 @@ def add_sighting(request):
 """
 
 #Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
-"""
-# This one should provide stat
-"""
+# This one should provide number of squirrels for selected activities
+def stat_acts(request):
+    # squirrels_obj = Squirrel.objects
+    running = get_object_or_404(Squirrel, Running=True)
+    # chasing
+    # climbing
+    # eating
+    # foraging
+    context = {
+        'running':running,
+    }
+    return render(request, 'adopt/stats.html', context)
+    
