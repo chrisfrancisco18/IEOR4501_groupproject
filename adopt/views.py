@@ -21,7 +21,7 @@ def map(request):
         sightings = Squirrel.objects.all()
     
     context = {
-       'sighting':sightinfs, 
+       'sighting':sightings, 
     }
     
     return render(request, 'adopt/map.html', context)
