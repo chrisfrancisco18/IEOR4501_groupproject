@@ -20,7 +20,9 @@ class SquirrelForm(ModelForm):
     sq_shift =forms.CharField(max_length=3, 
           #choices= SHIFT_CHOICES, default=AM
                              )
-    sq_date = forms.DateField(auto_now=False, auto_now_add=False)
+    sq_date = forms.DateField(
+        #auto_now=False, auto_now_add=False
+    )
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
     OTHER = ''
