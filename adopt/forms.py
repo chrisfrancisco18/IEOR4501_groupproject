@@ -7,6 +7,6 @@ class NameForm(ModelForm):
     model = Squirrel
     fields = [
       # update this later
-      'Lattitude',
+      'Latitude',
       'Longitude',
       ]
