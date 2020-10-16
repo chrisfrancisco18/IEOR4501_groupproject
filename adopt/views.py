@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse #We could modify this to HttpResponseRedirect
-from .forms import NameForm
+#from .forms import NameForm
 
 
 from .models import Squirrel
