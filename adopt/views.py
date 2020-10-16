@@ -20,6 +20,8 @@ def map(request):
        sighting = random.sample(items, 100)
     else:  
        sightings = items
+    # for testing
+    print(sightings)
     # sightings will be used in map.html
     context = {
         'sightings':sightings,
