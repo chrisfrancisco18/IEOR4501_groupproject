@@ -15,13 +15,14 @@ def index(request):
 def map(request):
     # we only plot 100 sightings
     # we'll randomly select 100 sightings unless there are less than a hundred
+    print(Squirrel.objects.count())
     if Squirrel.objects.count() > 100:
-        sighting = random.sample(Squirrel.objects.all(), 100)
+        sightings = random.sample(Squirrel.objects.all(), 100)
     else:
         sightings = Squirrel.objects.all()
     
     context = {
-       'sighting':sightings, 
+       'sightings':sightings, 
     }
     
     return render(request, 'adopt/map.html', context)
