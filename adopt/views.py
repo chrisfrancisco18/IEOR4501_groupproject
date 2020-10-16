@@ -71,7 +71,7 @@ def add_sighting(request):
         if form.is_valid():
             return HttpResponse('/Thanks for the adding!/')
     else:
-        form = NameForm()
+        form = SquirrelForm()
     return render(request, 'adopt/add.html', {'form': form})    #need to check this line
 
 
