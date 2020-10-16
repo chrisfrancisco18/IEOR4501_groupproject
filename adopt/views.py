@@ -97,13 +97,13 @@ def add_sighting(request):
 # This one should provide number of squirrels for selected activities
 def stat_acts(request):
     # squirrels_obj = Squirrel.objects
-    running = get_object_or_404(Squirrel, Running=True)
-    # chasing
-    # climbing
-    # eating
-    # foraging
+    runnings = get_object_or_404(Squirrel, Running=True)
+    # chasings
+    # climbings
+    # eatings
+    # foragings
     context = {
-        'running':running,
+        'runnings':runnings,
     }
     return render(request, 'adopt/stats.html', context)
     
