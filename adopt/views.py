@@ -53,8 +53,8 @@ def squirrel_detail(request, Unique_Squirrel_ID):
     return render(request, 'adopt/detail.html', context)
 
 """
-def detail(request, uni_sqr_id):
-    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID__exact=uni_sqr_id)
+def squirrel_detail(request, uni_sqr_id):
+    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=uni_sqr_id)
     
     context = {
         'squirrel':squirrel,
