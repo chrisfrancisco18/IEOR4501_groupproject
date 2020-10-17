@@ -55,10 +55,11 @@ class Squirrel(models.Model):
  #       help_text=_("Date"),
  #       default=datetime.now,
  #   )
-   # Date=models.CharField(
-   #     max_length=9,
-   #     help_text=_("Date"),
-   # )
+    date=models.CharField(
+        max_length=9,
+        help_text=_("Date"),
+        default='',
+     )
     
     hectare_sq=models.IntegerField(
        # blank=True,
