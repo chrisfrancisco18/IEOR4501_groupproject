@@ -3,159 +3,169 @@ from django.utils.translation import gettext as _
 
 # Create your models here
 
+
+
+
+class SquirrelManager(models.Manager):
+    def create_squirrel(self, x, y, unique_squirrel_id, hectare, shift, date,hectare_sq, age, primary_fur,highlight_fur, combi_fur, color_note, location, above_ground, spec_loc, running, chasing, climbing, eating, foraging, other_act, kuks, quaas, moans, flags, twitches, approaches, indifferent, runsfrom, other_int, lat_long ):
+        squirrel = self.create(x=x, y=y, unique_squirrel_id=unique_squirrel_id,hectare=hectare, shift=shift, date=date,hectar_sq=hectare_sq, age=age, primary_fur=primary_fur, highlight_fur=highlight_fur, combi_fur=combi_fur, color_note=color_note, location=location, above_ground=above_ground, spec_loc=spec_loc, running=running, chasing=chasing, climbing=climbing, eating=eating, foraging=foraging, other_act=other_act, kuks=kuks, quaas=quaas, moans=moans, flags=flags, twitches=twitches, approaches=approaches, indifferent=indifferent, runsfrom=runsfrom, other_int=other_int, lat_long=lat_long
+)
+        return squirrel
+
 class Squirrel(models.Model):
-    Longitude=models.FloatField(help_text=_("Longitude"))
-    Latitude=models.FloatField(help_text=_("Latitude"))
-    
-    """
-    Unique_Squirrel_ID=models.CharField(
-        max_length=14,
-        help_text=_("The Unique ID"),
-    ) 
-    """
-    
-    # use Unique Squirrel ID as a primary key
-    Unique_Squirrel_ID=models.SlugField(
+    x = models.FloatField()
+    y = models.FloatField()
+   # unique_squirrel_id = models.CharField(max_length=14)
+    unique_squirrel_id=models.CharField(
         primary_key=True,
         max_length=14,
         help_text=_("The Unique ID"),
     )
     
-    Hectare=models.CharField(
+    hectare=models.CharField(
         blank=True,
         max_length=4,
         help_text=_("Hectare"),
     )
     
-    AM = 'AM'
-    PM = 'PM'
+   # AM = 'AM'
+   # PM = 'PM'
     
-    SHIFT_CHOICES = [
-        (AM, _('AM')),
-        (PM, _('PM')),
-    ]
+   # SHIFT_CHOICES = [
+   #     (AM, _('AM')),
+   #     (PM, _('PM')),
+   # ]
     
-    Shift=models.CharField(
-        max_length=3,
-        choices=SHIFT_CHOICES,
-        default=AM,
-    )
+  #  Shift=models.CharField(
+  #      max_length=3,
+  #      choices=SHIFT_CHOICES,
+  #      default=AM,
+  #  )
+
+    shift = models.CharField(
+            max_length=3)
     
-    """
-    Date=models.DateField(
+
+    date=models.DateField(
         help_text=_("Date"),
     )
-    """
-    Date=models.CharField(
-        max_length=9,
-        help_text=_("Date"),
-    )
+   # Date=models.CharField(
+   #     max_length=9,
+   #     help_text=_("Date"),
+   # )
     
-    Hectare_squirrel_nunber=models.IntegerField(
-        blank=True,
+    hectare_sq=models.IntegerField(
+       # blank=True,
         help_text=_("Hectare Number"),
     )
     
-    ADULT = 'Adult'
-    JUVENILE = 'Juvenile'
-    OTHER = ''
+   # ADULT = 'Adult'
+   # JUVENILE = 'Juvenile'
+   # OTHER = ''
     
-    AGE_CHOICES = [
-        (ADULT, _('Adult')),
-        (JUVENILE, _('Juvenile')),
-        (OTHER, _('')),
-    ]
+   # AGE_CHOICES = [
+   #     (ADULT, _('Adult')),
+   #     (JUVENILE, _('Juvenile')),
+   #     (OTHER, _('')),
+   # ]
     
-    Age=models.CharField(
-        blank=True,
+    age=models.CharField(
+       # blank=True,
         max_length=20,
         help_text=_("Age"),
-        choices=AGE_CHOICES,
-        default=OTHER,
+       # choices=AGE_CHOICES,
+       # default=OTHER,
     )
     
-    Primary_Fur_Color=models.CharField(
+    primary_fur_Color=models.CharField(
         blank=True,
         max_length=20,
         help_text=_("Primary Fur Color"),
     )
     
-    Highlight_Fur_Color=models.CharField(
+    highlight_fur_Color=models.CharField(
         blank=True,
         max_length=20,
         help_text=_("Highlight Fur Color"),
     )
     
-    Combi_Fur_Color=models.CharField(
+    combi_fur=models.CharField(
         blank=True,
         max_length=40,
         help_text=_("Combine Fur Color"),
     )
     
-    Color_Notes=models.CharField(
+    color_note=models.CharField(
         blank=True,
         max_length=40,
         help_text=_("Color Note"),
     )
     
-    AG = 'Above Ground'
-    GP = 'Ground Plane'
-    OTHER = ''
+   # AG = 'Above Ground'
+   # GP = 'Ground Plane'
+   # OTHER = ''
     
-    LOCATION_CHOICES = [
-        (AG, _('Above Ground')),
-        (GP, _('Ground Plane')),
-        (OTHER, _('')),
-    ]
+   # LOCATION_CHOICES = [
+   #    (AG, _('Above Ground')),
+   #     (GP, _('Ground Plane')),
+   #     (OTHER, _('')),
+   # ]
     
-    Location=models.CharField(
+    location=models.CharField(
         max_length=20,
         help_text=_("Locations"),
-        choices=LOCATION_CHOICES,
-        default=OTHER,
+       # choices=LOCATION_CHOICES,
+       # default=OTHER,
     )
     
-    Above_Ground=models.CharField(
-        blank=True,
+    above_ground=models.CharField(
+       # blank=True,
         max_length=20,
         help_text=_("How Far from Ground Please Put The Number. If Found On The Ground Please Put FALSE"),
     )
     
-    Specific_Location=models.TextField(
-        blank=True,
+    specific_loc=models.CharField(
+       # blank=True,
         help_text=_("Specific Location"),
     )
     
-    Running=models.BooleanField()
-    Chasing=models.BooleanField()
-    Climbing=models.BooleanField()
-    Eating=models.BooleanField()
-    Foraging=models.BooleanField()
+    running=models.BooleanField()
+    chasing=models.BooleanField()
+    climbing=models.BooleanField()
+    eating=models.BooleanField()
+    foraging=models.BooleanField()
     
-    Other_Activ=models.TextField(
-        blank=True,
+    other_act=models.CharField(
+       # blank=True,
         help_text=_("Other Activites"),
     )
     
-    Kuks=models.BooleanField()
-    Quaas=models.BooleanField()
-    Moans=models.BooleanField()
-    Tail_flags=models.BooleanField()
-    Tail_twitch=models.BooleanField()
-    Approaches=models.BooleanField()
-    Indifferent=models.BooleanField()
-    Runs_from=models.BooleanField()
+    kuks=models.BooleanField()
+    quaas=models.BooleanField()
+    moans=models.BooleanField()
+    flags=models.BooleanField()
+    twitches=models.BooleanField()
+    approaches=models.BooleanField()
+    indifferent=models.BooleanField()
+    runsfrom=models.BooleanField()
     
-    Other_Inter=models.CharField(
+    other_int=models.CharField(
         blank=True,
         max_length=20,
         help_text=_("Other Interactions"),
     )
     
-    Lat_Long=models.CharField(
+    lat_long=models.CharField(
         blank=True,
         max_length=100,
     )
     
     def __str__(self):
         return self.Unique_Squirrel_ID
+
+
+    objects = SquirrelManager()
+
+
+
+
