@@ -105,5 +105,6 @@ def stat_acts(request):
     context = {
         'runnings':runnings,
     }
+    print(context)
     return render(request, 'adopt/stats.html', context)
     
