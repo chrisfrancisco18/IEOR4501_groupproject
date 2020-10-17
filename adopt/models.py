@@ -115,17 +115,20 @@ class Squirrel(models.Model):
         max_length=20,
         help_text=_("Locations"),
        # choices=LOCATION_CHOICES,
-       # default=OTHER,
+        default=OTHER,
     )
     
     above_ground=models.CharField(
        # blank=True,
         max_length=20,
+        default=FALSE
         help_text=_("How Far from Ground Please Put The Number. If Found On The Ground Please Put FALSE"),
     )
     
     specific_loc=models.CharField(
        # blank=True,
+        max_length=70,
+        default=''
         help_text=_("Specific Location"),
     )
     
@@ -137,6 +140,8 @@ class Squirrel(models.Model):
     
     other_act=models.CharField(
        # blank=True,
+        max_length = 30,
+        default=''
         help_text=_("Other Activites"),
     )
     
