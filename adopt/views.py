@@ -112,6 +112,10 @@ def stat_acts(request):
     
     print(type(runnings))
     
+    if running:
+        for running in runnings:
+            print(running)
+    
     context = {
         'runnings':runnings,
         'chasings':chasings,
