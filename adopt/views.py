@@ -95,12 +95,20 @@ def add_sighting(request):
 #Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
 # This one should provide number of squirrels for selected activities
 def stat_acts(request):
-    # squirrels_obj = Squirrel.objects
-    runnings = get_list_or_404(Squirrel, Running=True)
-    chasings = get_list_or_404(Squirrel, Chasing=True)
+    squirrels_obj = Squirrel.objects
+    
+    # cannot use get_list_or_404 because it raises an error if the list is empty
+    #runnings = get_list_or_404(Squirrel, Running=True)
+    #chasings = get_list_or_404(Squirrel, Chasing=True)
     #climbings = get_list_or_404(Squirrel, Climbing=True)
     #eatings = get_list_or_404(Squirrel, Eating=True)
     #foragings = get_list_or_404(Squirrel, Foraging=True)
+    
+    runnings = squirrels_obj.filter(Running=True)
+    chasings = squirrels_obj.filter(Chasing=True)
+    climbings = squirrels_obj.filter(Climbing=True)
+    eatings = squirrels_obj.filter(Eating=True)
+    foragings = squirrels_obj.filter(Foraging=True)
     
     print(type(runnings))
     
