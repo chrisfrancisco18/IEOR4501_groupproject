@@ -98,13 +98,19 @@ def add_sighting(request):
 def stat_acts(request):
     # squirrels_obj = Squirrel.objects
     runnings = get_object_or_404(Squirrel, Running=True)
-    # chasings
-    # climbings
-    # eatings
-    # foragings
+    chasings = get_object_or_404(Squirrel, Chasing=True)
+    climbings = get_object_or_404(Squirrel, Climbing=True)
+    eatings = get_object_or_404(Squirrel, Eating=True)
+    foragings = get_object_or_404(Squirrel, Foraging=True)
+    
     context = {
         'runnings':runnings,
+        'chasings':chasings,
+        'climbings':climbings,
+        'eatings':eatings,
+        'foragings':foragings,
     }
+    
     print(context)
     return render(request, 'adopt/stats.html', context)
     
