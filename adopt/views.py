@@ -133,7 +133,8 @@ def stat_acts(request):
     context = {
         'runnings':runnings,
         'found_run':found_run,
-        'run_avg':[run_avg_lat,run_avg_log],
+        'run_avg_lat':run_avg_lat,
+        'run_avg_log':run_avg_log,
         'chasings':chasings,
         'climbings':climbings,
         'eatings':eatings,
