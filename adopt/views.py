@@ -202,6 +202,6 @@ def stat_acts_hist(list_):
             temp_log.append(each.Longitude)
         # temp_list = list(range(len(list_)))
         # print(temp_list)
-        dataset = pd.DataFrame(np.transpose(np.array(temp_lat, temp_log)),columns=['Latitude', 'Longitude'])
+        dataset = pd.DataFrame(np.transpose(np.array([temp_lat, temp_log])),columns=['Latitude', 'Longitude'])
 
             
