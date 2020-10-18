@@ -173,7 +173,7 @@ def stat_acts(request):
         'forage_avg_log':forage_avg_log,
     }
     
-    stat_acts_hist(runnings)
+    stat_acts_hist(chasings)
     return render(request, 'adopt/stats.html', context)
     
 def stat_acts_helper(list_):
