@@ -156,9 +156,21 @@ def stat_acts(request):
         'run_avg_lat':run_avg_lat,
         'run_avg_log':run_avg_log,
         'chasings':chasings,
+        'found_chase':found_chase,
+        'chase_avg_lat':chase_avg_lat,
+        'chase_avg_log':chase_avg_log,
         'climbings':climbings,
+        'found_climb':found_climb,
+        'climb_avg_lat':climb_avg_lat,
+        'climb_avg_log':climb_avg_log,
         'eatings':eatings,
+        'found_eat':found_eat,
+        'eat_avg_lat':eat_avg_lat,
+        'eat_avg_log':eat_avg_log,
         'foragings':foragings,
+        'found_forage':found_forage,
+        'forage_avg_lat':forage_avg_lat,
+        'forage_avg_log':forage_avg_log,
     }
     
     print(context)
