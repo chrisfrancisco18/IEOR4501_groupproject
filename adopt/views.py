@@ -97,7 +97,7 @@ def add_sighting(request):
 def stat_acts(request):
     # squirrels_obj = Squirrel.objects
     runnings = get_list_or_404(Squirrel, Running=True)
-    #chasings = get_list_or_404(Squirrel, Chasing=True)
+    chasings = get_list_or_404(Squirrel, Chasing=True)
     #climbings = get_list_or_404(Squirrel, Climbing=True)
     #eatings = get_list_or_404(Squirrel, Eating=True)
     #foragings = get_list_or_404(Squirrel, Foraging=True)
@@ -105,9 +105,9 @@ def stat_acts(request):
     context = {
         'runnings':runnings,
         'chasings':chasings,
-        'climbings':climbings,
-        'eatings':eatings,
-        'foragings':foragings,
+        # 'climbings':climbings,
+        # 'eatings':eatings,
+        # 'foragings':foragings,
     }
     
     print(context)
