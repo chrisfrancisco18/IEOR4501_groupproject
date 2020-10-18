@@ -112,7 +112,7 @@ def stat_acts(request):
     
     print(type(runnings))
     
-    if running:
+    if runnings:
         for running in runnings:
             print(running)
     
