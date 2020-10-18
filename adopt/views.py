@@ -114,7 +114,7 @@ def stat_acts(request):
     
     if runnings:
         for running in runnings:
-            print(running)
+            print(running.Latitude)
     
     context = {
         'runnings':runnings,
