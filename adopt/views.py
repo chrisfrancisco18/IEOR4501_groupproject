@@ -102,6 +102,8 @@ def stat_acts(request):
     #eatings = get_list_or_404(Squirrel, Eating=True)
     #foragings = get_list_or_404(Squirrel, Foraging=True)
     
+    print(type(runnings))
+    
     context = {
         'runnings':runnings,
         'chasings':chasings,
