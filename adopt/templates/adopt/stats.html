@@ -1,9 +1,9 @@
 <html>
   <body>
     <ul>
-      {% for running in runnings %}
-      <p>{{ running.Unique_Squirrel_ID }}</p>
-      {% endfor %}
+      {% if found_run == True %}
+      <p>Mean Latitude = {{ run_avg[0] }}</p>
+      {% endif %}
     </ul>
     <ul>
       {% for chasing in chasings %}
