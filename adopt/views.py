@@ -204,6 +204,6 @@ def stat_acts_hist(list_):
         # print(temp_list)
         dataset = pd.DataFrame(np.transpose(np.array([temp_lat, temp_log])),columns=['Latitude', 'Longitude'])
         print(dataset.describe())
-        fig = dataset.hist().get_figure()
-        print(type(fig))
-        
+        fig = dataset.hist()
+        plt.show()
+        plt.savefig('image.jpg')
