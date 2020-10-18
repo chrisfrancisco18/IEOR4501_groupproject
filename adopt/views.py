@@ -206,4 +206,4 @@ def stat_acts_hist(list_):
         print(dataset.describe())
         fig = dataset.hist()
         plt.show()
-        plt.savefig('image.jpg')
+        print(type(plt.savefig('image.jpg')))
