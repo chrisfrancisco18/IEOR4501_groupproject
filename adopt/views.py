@@ -173,7 +173,7 @@ def stat_acts(request):
         'forage_avg_log':forage_avg_log,
     }
     
-    stat_acts_hist(chasings)
+    # stat_acts_hist(chasings)
     return render(request, 'adopt/stats.html', context)
     
 def stat_acts_helper(list_):
@@ -187,6 +187,9 @@ def stat_acts_helper(list_):
             temp_log.append(each.Longitude)
         return [statistics.mean(temp_lat), statistics.mean(temp_log)]
 
+"""
+try to do stat by using matplotlib and pandas
+"""
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -206,4 +209,4 @@ def stat_acts_hist(list_):
         print(dataset.describe())
         fig = dataset.hist()
         plt.show()
-        print(type(plt.savefig('image.jpg')))
+        # print(plt.savefig('image.jpg'))
