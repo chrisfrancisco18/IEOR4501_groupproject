@@ -115,9 +115,9 @@ def stat_acts(request):
     context = {
         'runnings':runnings,
         'chasings':chasings,
-        # 'climbings':climbings,
-        # 'eatings':eatings,
-        # 'foragings':foragings,
+        'climbings':climbings,
+        'eatings':eatings,
+        'foragings':foragings,
     }
     
     print(context)
