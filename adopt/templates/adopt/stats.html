@@ -6,28 +6,44 @@
       <p>Mean Latitude = {{ run_avg_lat }}
          Mean Longitude = {{ run_avg_log }}</p>
       {% else %}
-      <p>No squirrels are founded when they are running</p>
+      <p>No squirrels are founded while they are running</p>
       {% endif %}
     </ul>
     <ul>
-      {% for chasing in chasings %}
-      <p>{{ chasing.Unique_Squirrel_ID }}</p>
-      {% endfor %}
+      <p>Chasing</p>
+      {% if found_chase == True %}
+      <p>Mean Latitude = {{ chase_avg_lat }}
+         Mean Longitude = {{ chase_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are founded while they are chasing</p>
+      {% endif %}
     </ul>
     <ul>
-      {% for climbing in climbings %}
-      <p>{{ climbing.Unique_Squirrel_ID }}</p>
-      {% endfor %}
+      <p>Climbing</p>
+      {% if found_climb == True %}
+      <p>Mean Latitude = {{ climb_avg_lat }}
+         Mean Longitude = {{ climb_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are founded while they are climbing</p>
+      {% endif %}
+     </ul>
+     <ul>
+      <p>Eating</p>
+      {% if found_eat == True %}
+      <p>Mean Latitude = {{ eat_avg_lat }}
+         Mean Longitude = {{ eat_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are founded while they are eating</p>
+      {% endif %}
     </ul>
     <ul>
-      {% for eating in eatings %}
-      <p>{{ eating.Unique_Squirrel_ID }}</p>
-      {% endfor %}
-    </ul>
-    <ul>
-      {% for foraging in foragings %}
-      <p>{{ foraging.Unique_Squirrel_ID }}</p>
-      {% endfor %}
+      <p>Foraging</p>
+      {% if found_forage == True %}
+      <p>Mean Latitude = {{ forage_avg_lat }}
+         Mean Longitude = {{ forage_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are founded while they are foraging</p>
+      {% endif %}
     </ul>
   </body>
 </html>
