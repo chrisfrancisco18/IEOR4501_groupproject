@@ -10,5 +10,20 @@
       <p>{{ chasing.Unique_Squirrel_ID }}</p>
       {% endfor %}
     </ul>
+    <ul>
+      {% for climbing in climbings %}
+      <p>{{ climbing.Unique_Squirrel_ID }}</p>
+      {% endfor %}
+    </ul>
+    <ul>
+      {% for eating in eatings %}
+      <p>{{ eating.Unique_Squirrel_ID }}</p>
+      {% endfor %}
+    </ul>
+    <ul>
+      {% for foraging in foragings %}
+      <p>{{ foraging.Unique_Squirrel_ID }}</p>
+      {% endfor %}
+    </ul>
   </body>
 </html>
