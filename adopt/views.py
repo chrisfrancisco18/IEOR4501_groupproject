@@ -188,6 +188,7 @@ def stat_acts_helper(list_):
         return [statistics.mean(temp_lat), statistics.mean(temp_log)]
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 def stat_acts_hist(list_):
@@ -199,7 +200,8 @@ def stat_acts_hist(list_):
         for each in list_:
             temp_lat.append(each.Latitude)
             temp_log.append(each.Longitude)
-            temp_list = list(range(len(list_)))
-            print(temp_list)
+        # temp_list = list(range(len(list_)))
+        # print(temp_list)
+        dataset = pd.DataFrame(np.transpose(np.array(temp_lat, temp_log)),columns=['Latitude', 'Longitude'])
 
             
