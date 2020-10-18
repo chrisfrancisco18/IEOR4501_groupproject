@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse #We could modify this to HttpResponseRedirect
 #from .forms import NameForm
-
 from .models import Squirrel
+
+# for /map
 import random
+# for /stats
+import statistics
 
 # Create your views here.
 def index(request):
@@ -110,14 +113,22 @@ def stat_acts(request):
     eatings = squirrels_obj.filter(Eating=True)
     foragings = squirrels_obj.filter(Foraging=True)
     
-    print(type(runnings))
+    # print(type(runnings))
+    
+    found_run = False
+    run_avg_lat = 0.0
+    run_avg_log = 0.0
     
     if runnings:
-        for running in runnings:
-            print(running.Latitude)
+        found_run = True
+        run_avg_lat = statistics.mean(runnings.Latitude)
+        run_avg_log = statistics.mean(runnings.logitude)
+        
     
     context = {
         'runnings':runnings,
+        'found_run':found_run,
+        'run_avg':[run_avg_lat,run_avg_log],
         'chasings':chasings,
         'climbings':climbings,
         'eatings':eatings,
