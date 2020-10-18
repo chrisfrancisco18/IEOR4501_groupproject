@@ -173,7 +173,7 @@ def stat_acts(request):
         'forage_avg_log':forage_avg_log,
     }
     
-    print(context)
+    stat_acts_hist(runnings)
     return render(request, 'adopt/stats.html', context)
     
 def stat_acts_helper(list_):
@@ -186,3 +186,20 @@ def stat_acts_helper(list_):
             temp_lat.append(each.Latitude)
             temp_log.append(each.Longitude)
         return [statistics.mean(temp_lat), statistics.mean(temp_log)]
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+def stat_acts_hist(list_):
+    if not list_:
+        raise InputError()
+    else:
+        temp_lat = []
+        temp_log = []
+        for each in list_:
+            temp_lat.append(each.Latitude)
+            temp_log.append(each.Longitude)
+            temp_list = list(range(len(list_)))
+            print(temp_list)
+
+            
