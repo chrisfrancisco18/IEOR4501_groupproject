@@ -25,20 +25,73 @@ class Command(BaseCommand):
                 location = item['Location']
                 above_ground = item['Above Ground Sighter Measurement']
                 spec_loc = item['Specific Location']
-                running = item['Running']
-                chasing = item['Chasing']
-                climbing = item['Climbing']
-                eating = item['Eating']
-                foraging = item['Foraging']
+                if item['Running']=="FALSE":
+                    running = False
+                if item['Running']=="TRUE":
+                    running = True
+
+                if item['Chasing']=="FALSE":
+                    chasing = False
+                if item['Chasing']=="TRUE":
+                    chasing = True
+
+                if item['Climbing']=="FALSE":
+                    climbing = False
+                if item['Climbing']=="TRUE":
+                    climbing = True
+    
+                if item['Eating']=="FALSE":
+                    eating = False
+                if item['Eating']=="TRUE":
+                    eating = True
+                
+                if item['Foraging']=="FALSE":
+                    foraging = False
+                if item['Foraging']=="TRUE":
+                    foraging = True
+        
                 other_act = item['Other Activities']
-                kuks = item['Kuks']
-                quaas = item['Quaas']
-                moans = item['Moans']
-                flags = item['Tail flags']
-                twitches = item['Tail twitches']
-                approaches = item['Approaches']
-                indifferent = item['Indifferent']
-                runsfrom = item['Runs from']
+                
+                if item['Kuks']=="FALSE":
+                    kuks = False
+                if item['Kuks']=="TRUE":
+                    kuks  = True
+                
+                if item['Quaas']=="FALSE":
+                    quaas = False
+                if item['Quaas']=="TRUE":
+                    quaas = True
+                
+                if item['Moans']=="FALSE":
+                    moans = False
+                if item['Moans']=="TRUE":
+                    moans = True
+                
+                if item['Tail flags']=="FALSE":
+                    flags = False
+                if item['Tail flags']=="TRUE":
+                    flags = True
+                
+                if item['Tail twitches']=="FALSE":
+                    twitches = False
+                if item['Tail twitches']=="TRUE":
+                    twitchess = True
+            
+                if item['Approaches']=="FALSE":
+                    approaches = False
+                if item['Approaches']=="TRUE":
+                    approaches = True
+                
+                if item['Indifferent']=="FALSE":
+                    indifferent = False
+                if item['Indifferent']=="TRUE":
+                    indifferent = True
+                
+                if item['Runs from']=="FALSE":
+                    runsfrom = False
+                if item['Runs from']=="TRUE":
+                    runsfrom = True
+    
                 other_int = item['Other Interactions']
                 lat_long = item['Lat/Long']
                 

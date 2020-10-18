@@ -9,7 +9,7 @@ from datetime import datetime
 
 class SquirrelManager(models.Manager):
     def create_squirrel(self, x, y, unique_squirrel_id, hectare, shift, date,hectare_sq, age, primary_fur,highlight_fur, combi_fur, color_note, location, above_ground, spec_loc, running, chasing, climbing, eating, foraging, other_act, kuks, quaas, moans, flags, twitches, approaches, indifferent, runsfrom, other_int, lat_long ):
-        squirrel = self.create(x=x, y=y, unique_squirrel_id=unique_squirrel_id,hectare=hectare, shift=shift, date=date,hectar_sq=hectare_sq, age=age, primary_fur=primary_fur, highlight_fur=highlight_fur, combi_fur=combi_fur, color_note=color_note, location=location, above_ground=above_ground, spec_loc=spec_loc, running=running, chasing=chasing, climbing=climbing, eating=eating, foraging=foraging, other_act=other_act, kuks=kuks, quaas=quaas, moans=moans, flags=flags, twitches=twitches, approaches=approaches, indifferent=indifferent, runsfrom=runsfrom, other_int=other_int, lat_long=lat_long
+        squirrel = self.create(x=x, y=y, unique_squirrel_id=unique_squirrel_id,hectare=hectare, shift=shift, date=date,hectare_sq=hectare_sq, age=age, primary_fur=primary_fur, highlight_fur=highlight_fur, combi_fur=combi_fur, color_note=color_note, location=location, above_ground=above_ground, spec_loc=spec_loc, running=running, chasing=chasing, climbing=climbing, eating=eating, foraging=foraging, other_act=other_act, kuks=kuks, quaas=quaas, moans=moans, flags=flags, twitches=twitches, approaches=approaches, indifferent=indifferent, runsfrom=runsfrom, other_int=other_int, lat_long=lat_long
 )
         return squirrel
 
@@ -85,14 +85,14 @@ class Squirrel(models.Model):
         default='',
     )
     
-    primary_fur_Color=models.CharField(
+    primary_fur=models.CharField(
         blank=True,
         max_length=20,
         help_text=_("Primary Fur Color"),
         default='',
     )
     
-    highlight_fur_Color=models.CharField(
+    highlight_fur=models.CharField(
         blank=True,
         max_length=20,
         help_text=_("Highlight Fur Color"),
@@ -137,7 +137,7 @@ class Squirrel(models.Model):
        # help_text=_("How Far from Ground Please Put The Number. If Found On The Ground Please Put FALSE"),
     )
     
-    specific_loc=models.CharField(
+    spec_loc=models.CharField(
        # blank=True,
         max_length=70,
         default='',
