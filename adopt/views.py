@@ -121,8 +121,13 @@ def stat_acts(request):
     
     if runnings:
         found_run = True
-        run_avg_lat = statistics.mean(runnings.Latitude)
-        run_avg_log = statistics.mean(runnings.logitude)
+        temp_lat = []
+        temp_log = []
+        for running in runnings:
+            temp_lat.append(running.Latitude)
+            temp_log.append(running.Longitude)
+        run_avg_lat = statistics.mean(temp_lat)
+        run_avg_log = statistics.mean(temp_log)
         
     
     context = {
