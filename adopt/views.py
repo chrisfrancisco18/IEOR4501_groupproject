@@ -118,18 +118,38 @@ def stat_acts(request):
     found_run = False
     run_avg_lat = 0.0
     run_avg_log = 0.0
-    
     if runnings:
         found_run = True
-        temp_lat = []
-        temp_log = []
-        for running in runnings:
-            temp_lat.append(running.Latitude)
-            temp_log.append(running.Longitude)
-        run_avg_lat = statistics.mean(temp_lat)
-        run_avg_log = statistics.mean(temp_log)
+        run_avg_lat, run_avg_log = stat_acts_helper(runnings)
         
+    found_chase = False
+    chase_avg_lat = 0.0
+    chase_avg_log = 0.0
+    if chasings:
+        found_chase = True
+        chase_avg_lat, chase_avg_log = stat_acts_helper(chasings)
+        
+    found_climb = False
+    climb_avg_lat = 0.0
+    climb_avg_log = 0.0
+    if climbings:
+        found_climb = True
+        climb_avg_lat, climb_avg_log = stat_acts_helper(climbings)
     
+    found_eat = False
+    eat_avg_lat = 0.0
+    eat_avg_log = 0.0
+    if eatings:
+        found_eat = True
+        eat_avg_lat, eat_avg_log = stat_acts_helper(eatings)
+        
+    found_forage = False
+    forage_avg_lat = 0.0
+    forage_avg_log = 0.0
+    if foragings:
+        found_forage = True
+        forage_avg_lat, forage_avg_log = stat_acts_helper(foragings)
+        
     context = {
         'runnings':runnings,
         'found_run':found_run,
@@ -144,3 +164,13 @@ def stat_acts(request):
     print(context)
     return render(request, 'adopt/stats.html', context)
     
+def stat_acts_helper(list_):
+    if not list_:
+        raise InputError()
+    else:
+        temp_lat = []
+        temp_log = []
+        for each in list_:
+            temp_lat.append(each.Latitude)
+            temp_log.append(each.Longitude)
+        return [statistics.mean(temp_lat), statistics.mean(temp_log)]
