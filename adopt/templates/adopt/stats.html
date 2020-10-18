@@ -1,7 +1,9 @@
 <html>
   <body>
     <ul>
-      {{ runnings.Unique_Squirrel_ID }}
+      {% for running in runnings %}
+      <p>{{ running.Unique_Squirrel_ID }}</p>
+      {% endfor %}
     </ul>
   </body>
 </html>
