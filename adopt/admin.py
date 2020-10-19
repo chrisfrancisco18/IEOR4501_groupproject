@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Squirrel
+from .models import SquirrelTest
 
 # Register your models here.
-admin.site.register(Squirrel)
+admin.site.register(SquirrelTest)

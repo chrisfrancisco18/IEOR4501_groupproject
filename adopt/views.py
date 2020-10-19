@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse #We could modify this to HttpResponseRedirect
 #from .forms import NameForm
-from .models import Squirrel
+from .models import SquirrelTest
 
 # for /map
 import random
@@ -17,12 +17,11 @@ def index(request):
 def map(request):
     # we only plot 100 sightings
     # we'll randomly select 100 sightings unless there are less than a hundred
-    if Squirrel.objects.count() > 100:
-        sightings = random.sample(Squirrel.objects.all(), 100)
+    if SquirrelTest.objects.count() > 100:
+        sightings = random.sample(list(SquirrelTest.objects.all()), 100)
     else:
-        sightings = Squirrel.objects.all()
+        sightings = SquirrelTest.objects.all()
     
-    print(sightings)
     context = {
        'sightings':sightings, 
     }
@@ -33,7 +32,7 @@ def map(request):
 # see Squirrel Tracker Doc
 def sightings(request):
     # this will list all squirrel sightings
-    squirrels = Squirrel.objects.all()
+    squirrels = SquirrelTest.objects.all()
     
     context = {
        'squirrels':squirrels, 
@@ -43,10 +42,10 @@ def sightings(request):
     
 # Third view /sightings/<unique-squirrel-id>
 # see Squirrel Tracker Doc
-def squirrel_detail(request, Unique_Squirrel_ID):
+def squirrel_detail(request, unique_squirrel_id):
     # this will provide info for particular view (ID)
     # squirrel = get_object_or_404(Squirrel, pk=squirrel_id)
-    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=Unique_Squirrel_ID)
+    squirrel = get_object_or_404(SquirrelTest, unique_squirrel_id=unique_squirrel_id)
     
     context = {
         'squirrel':squirrel,
@@ -56,7 +55,7 @@ def squirrel_detail(request, Unique_Squirrel_ID):
 
 """
 def squirrel_detail(request, uni_sqr_id):
-    squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=uni_sqr_id)
+    squirrel = get_object_or_404(SquirrelTest, Unique_Squirrel_ID=uni_sqr_id)
     
     context = {
         'squirrel':squirrel,
@@ -98,7 +97,7 @@ def add_sighting(request):
 #Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
 # This one should provide number of squirrels for selected activities
 def stat_acts(request):
-    squirrels_obj = Squirrel.objects
+    squirrels_obj = SquirrelTest.objects
     
     # cannot use get_list_or_404 because it raises an error if the list is empty
     #runnings = get_list_or_404(Squirrel, Running=True)
@@ -107,11 +106,11 @@ def stat_acts(request):
     #eatings = get_list_or_404(Squirrel, Eating=True)
     #foragings = get_list_or_404(Squirrel, Foraging=True)
     
-    runnings = squirrels_obj.filter(Running=True)
-    chasings = squirrels_obj.filter(Chasing=True)
-    climbings = squirrels_obj.filter(Climbing=True)
-    eatings = squirrels_obj.filter(Eating=True)
-    foragings = squirrels_obj.filter(Foraging=True)
+    runnings = squirrels_obj.filter(running=True)
+    chasings = squirrels_obj.filter(chasing=True)
+    climbings = squirrels_obj.filter(climbing=True)
+    eatings = squirrels_obj.filter(eating=True)
+    foragings = squirrels_obj.filter(foraging=True)
     
     # print(type(runnings))
     
@@ -183,8 +182,8 @@ def stat_acts_helper(list_):
         temp_lat = []
         temp_log = []
         for each in list_:
-            temp_lat.append(each.Latitude)
-            temp_log.append(each.Longitude)
+            temp_lat.append(each.y)
+            temp_log.append(each.x)
         return [statistics.mean(temp_lat), statistics.mean(temp_log)]
 
 """

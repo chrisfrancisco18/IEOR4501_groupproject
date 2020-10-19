@@ -9,7 +9,7 @@ extra_patterns = [
         # path('<int:squirrel_id>/', views.detail, name='detail'),
         # path for stats
         path('stats/', views.stat_acts),
-        path('<slug:Unique_Squirrel_ID>/', views.squirrel_detail, name='detail'),
+        path('<str:unique_squirrel_id>/', views.squirrel_detail, name='detail'),
 ]
 
 urlpatterns = [
