@@ -80,19 +80,15 @@ def squirrel_detail_update(request):
 
 # Fourth view /sightings/add
 # see Squirrel Tracker Doc
-"""
 def add_sighting(request):
     if request.method == 'POST':
-        form = NameForm(request.POST)
+        form = SquirrelForm(request.POST)
         if form.is_valid():
-            return HttpResponse('//')
-
+            return HttpResponse('/Thanks for the adding!/')
     else:
-        form = NameForm()
+        form = SquirrelForm()
+    return render(request, 'adopt/add.html', {'form': form})    #need to check this line
 
-    return render(request, 'add.html', {'form': form})    #need to check this line
-
-"""
 
 #Fifth view: general stats-> Number of squirrels for each color/Most common actions, colors, etc.
 # This one should provide number of squirrels for selected activities

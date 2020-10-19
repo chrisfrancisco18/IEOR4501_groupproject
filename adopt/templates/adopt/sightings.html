@@ -11,6 +11,22 @@
       <div class="row">
         {% for squirrel in squirrels %}
         <div class="col-md-4">
+          <!-- for testing the add -->
+          <form id="submit" method="post" action="{% url 'adopt:add' %}" class="input-group mb-3">
+            {% csrf_token %}
+            <input type="text"
+                   name="adopter"
+                   class="form-control"
+                   placeholder="Email Address"
+                   aria-label="Email Address"/>
+            <input type="hidden" name="pet_id" value="{{ squirrel.Unique_Squirrel_ID }}">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">Request</button>
+            </div>
+            <div id="errors" class="mb-3"></div>
+          </form>
+        </div>
+      <!-- end here -->
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
               <p class="card-text">
