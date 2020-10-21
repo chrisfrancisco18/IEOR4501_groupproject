@@ -1,7 +1,7 @@
 import csv
   
 from django.core.management.base import BaseCommand, CommandError
-from adopt.models import Squirrel
+from adopt.models import SquirrelTest
 
 class Command(BaseCommand):
     help = 'Creates a csv file from internal squirrel data'
