@@ -11,8 +11,6 @@ import random
 import statistics
 
 # Create your views here.
-def index(request):
-    return render(request, 'adopt/index.html',{})
 
 # First view /map
 # see Squirrel Tracker Doc
@@ -120,8 +118,6 @@ def stat_acts(request):
     eatings = squirrels_obj.filter(eating=True)
     foragings = squirrels_obj.filter(foraging=True)
     
-    print(runnings == chasings)
-    
     found_run = False
     run_avg_lat = 0.0
     run_avg_log = 0.0
@@ -215,7 +211,6 @@ import urllib, base64
 
 #def stat_acts_hist(request):
 def stat_acts_hist(list_):
-    print(list_)
     if not list_:
         raise InputError()
     else:
@@ -227,6 +222,7 @@ def stat_acts_hist(list_):
         # temp_list = list(range(len(list_)))
         # print(temp_list)
         dataset = pd.DataFrame(np.transpose(np.array([temp_lat, temp_log])),columns=['Latitude', 'Longitude'])
+        print(dataset.min())
         dataset.hist()
         fig = plt.gcf()
         buf = io.BytesIO()
