@@ -57,30 +57,23 @@ def squirrel_detail(request, unique_squirrel_id):
     
     return render(request, 'adopt/detail.html', context)
 
-"""
-def squirrel_detail(request, uni_sqr_id):
-    squirrel = get_object_or_404(SquirrelTest, Unique_Squirrel_ID=uni_sqr_id)
-    
-    context = {
-        'squirrel':squirrel,
-    }
-    
-    return render(request, 'adopt/detail.html', context)
-"""
 
 def squirrel_detail_update(request):
-    if request.method == 'POST':
-        form = NameFormTwo(request.POST)
-        # need to recheck this
-        # see Lecture 8.16 Forms
+    squirrel = SquirrelTest.objects.get
+    if request.method == 'GET':
+        form = SquirrelForm()
+      #  return render(request, 'adopt/'<str:unique_squirrel_id>/'', {'form': form})
+        
+    elif request.method == 'POST':
+        form = SquirrelForm(request.POST)
         if form.is_valid():
-            return form.save()
+            squirrel = form.save(commit = False)
+            squirrel.save()
+            return HttpResponse('Thanks for the update of squirrel data!')
         else:
-            JsonResponse({'errors':form.errors}, status=400)
-    else:
-        form = NameFormTwo()
+            return JsonResponse({'errors':form.errors}, status = 400)
 
-    return render(request, 'adopt/add.html', {'form': form})
+    return JsonResponse({}, status=405)
 
 # Fourth view /sightings/add
 def sightings_add(request):
@@ -199,21 +192,44 @@ try to do stat by using matplotlib and pandas
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import io
+import urllib, base64
 
-def stat_acts_hist(list_):
+def stat_acts_hist(request):
+    squirrels_obj = SquirrelTest.objects
+
+    # cannot use get_list_or_404 because it raises an error if the list is empty
+    #runnings = get_list_or_404(Squirrel, Running=True)
+    #chasings = get_list_or_404(Squirrel, Chasing=True)
+    #climbings = get_list_or_404(Squirrel, Climbing=True)
+    #eatings = get_list_or_404(Squirrel, Eating=True)
+    #foragings = get_list_or_404(Squirrel, Foraging=True)
+
+    runnings = squirrels_obj.filter(running=True)
+    chasings = squirrels_obj.filter(chasing=True)
+    climbings = squirrels_obj.filter(climbing=True)
+    eatings = squirrels_obj.filter(eating=True)
+    foragings = squirrels_obj.filter(foraging=True)
+
+    list_ = chasings
     if not list_:
         raise InputError()
     else:
         temp_lat = []
         temp_log = []
         for each in list_:
-            temp_lat.append(each.Latitude)
-            temp_log.append(each.Longitude)
+            temp_lat.append(each.x)
+            temp_log.append(each.y)
         # temp_list = list(range(len(list_)))
         # print(temp_list)
         dataset = pd.DataFrame(np.transpose(np.array([temp_lat, temp_log])),columns=['Latitude', 'Longitude'])
-        print(dataset.describe())
-        fig = dataset.hist()
-        plt.show()
+        dataset.hist()
+        fig = plt.gcf()
+        buf = io.BytesIO()
+        fig.savefig(buf, format='jpg')
+        buf.seek(0)
+        string = base64.b64encode(buf.read())
+        uri = urllib.parse.quote(string)
+        return render(request, 'adopt/test.html', {'data':uri})
         # print(plt.savefig('image.jpg'))
 
