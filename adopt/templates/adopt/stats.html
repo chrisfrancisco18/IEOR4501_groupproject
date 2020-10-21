@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <ul>
+      <p>Running</p>
+      {% if found_run == True %}
+      <p>Mean Latitude = {{ run_avg_lat }}
+         Mean Longitude = {{ run_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are found while they are running</p>
+      {% endif %}
+    </ul>
+    <ul>
+      <p>Chasing</p>
+      {% if found_chase == True %}
+      <p>Mean Latitude = {{ chase_avg_lat }}
+         Mean Longitude = {{ chase_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are found while they are chasing</p>
+      {% endif %}
+    </ul>
+    <ul>
+      <p>Climbing</p>
+      {% if found_climb == True %}
+      <p>Mean Latitude = {{ climb_avg_lat }}
+         Mean Longitude = {{ climb_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are found while they are climbing</p>
+      {% endif %}
+     </ul>
+     <ul>
+      <p>Eating</p>
+      {% if found_eat == True %}
+      <p>Mean Latitude = {{ eat_avg_lat }}
+         Mean Longitude = {{ eat_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are found while they are eating</p>
+      {% endif %}
+    </ul>
+    <ul>
+      <p>Foraging</p>
+      {% if found_forage == True %}
+      <p>Mean Latitude = {{ forage_avg_lat }}
+         Mean Longitude = {{ forage_avg_log }}</p>
+      {% else %}
+      <p>No squirrels are found while they are foraging</p>
+      {% endif %}
+    </ul>
+  </body>
+</html>

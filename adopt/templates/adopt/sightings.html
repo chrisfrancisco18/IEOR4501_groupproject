@@ -1,5 +1,5 @@
 {% extends 'adopt/base.html' %}
-
+  
 {% load static %}
 
 {% block title %} - All Squirrels{% endblock %}
@@ -7,39 +7,21 @@
 {% block main %}
   <div class="album py-5 bg-light">
     <div class="container">
-
       <div class="row">
         {% for squirrel in squirrels %}
-        <div class="col-md-4">
-          <!-- for testing the add -->
-          <form id="submit" method="post" action="{% url 'adopt:add' %}" class="input-group mb-3">
-            {% csrf_token %}
-            <input type="text"
-                   name="adopter"
-                   class="form-control"
-                   placeholder="Email Address"
-                   aria-label="Email Address"/>
-            <input type="hidden" name="pet_id" value="{{ squirrel.Unique_Squirrel_ID }}">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="submit">Request</button>
-            </div>
-            <div id="errors" class="mb-3"></div>
-          </form>
-        </div>
-      <!-- end here -->
-          <div class="card mb-4 shadow-sm">
+          <div class="card mb-4 shadow-sm" "d-flex">
             <div class="card-body">
               <p class="card-text">
                 <div class="Squirrel ID:">
-                  <strong>{{ squirrel.Unique_Squirrel_ID }}</strong>
+                  <strong>{{ squirrel.unique_squirrel_id }}</strong>
                 </div>
                 <div class="Found Date:">
-                  <strong>{{ squirrel.Date }}</strong>
+                  <strong>{{ squirrel.date }}</strong>
                 </div>
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a class="btn btn-sm btn-outline-secondary" href="{% url 'adopt:detail' squirrel.Unique_Squirrel_ID %}">View</a>
+                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'adopt:detail' squirrel.unique_squirrel_id %}">View</a>
                 </div>
               </div>
             </div>
@@ -50,3 +32,4 @@
     </div>
   </div>
 {% endblock %}
+
