@@ -13,7 +13,7 @@
             <div class="card-body">
               <p class="card-text">
                 <div class="pet-name">
-                  <strong>{{ squirrel.Unique_Squirrel_ID }}</strong>
+                  <strong>{{ squirrel.unique_squirrel_id }}</strong>
                 </div>
                 <div>
                   <span class="text-muted font-italic">Latitude:</span>
@@ -53,7 +53,7 @@
 
       <div class="row">
         <div class="col-md-4">
-          <form action="/adopt/add/" method="post">
+          <form action="" method="post">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Request">

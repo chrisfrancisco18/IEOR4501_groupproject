@@ -33,46 +33,46 @@ class Command(BaseCommand):
                 above_ground = item['Above Ground Sighter Measurement']
                 spec_loc = item['Specific Location']
                 running = True
-                if item['Running']=='FALSE':
+                if item['Running']=='false':
                     running = False
                 chasing = True
-                if item['Chasing']=='FALSE':
+                if item['Chasing']=='false':
                     chasing = False
                 climbing = True
-                if item['Climbing']=='FALSE':
+                if item['Climbing']=='false':
                     climbing = False
                 eating = True
-                if item['Eating']=='FALSE':
+                if item['Eating']=='false':
                     eating = False
                 foraging = True
-                if item['Foraging']=='FALSE':
+                if item['Foraging']=='false':
                     foraging = False
 
                 other_act = item['Other Activities']
 
                 kuks = True
-                if item['Kuks']=='FALSE':
+                if item['Kuks']=='false':
                     kuks = False
                 quaas = True
-                if item['Quaas']=='FALSE':
+                if item['Quaas']=='false':
                     quaas = False
                 moans = True
-                if item['Moans']=='FALSE':
+                if item['Moans']=='false':
                     moans = False
                 flags = True
-                if item['Tail flags']=='FALSE':
+                if item['Tail flags']=='false':
                     flags = False
                 twitches = True
-                if item['Tail twitches']=='FALSE':
+                if item['Tail twitches']=='false':
                     twitches = False
                 approaches = True
-                if item['Approaches']=='FALSE':
+                if item['Approaches']=='false':
                     approaches = False
                 indifferent = True
-                if item['Indifferent']=='FALSE':
+                if item['Indifferent']=='false':
                     indifferent = False
                 runsfrom = True
-                if item['Runs from']=='FALSE':
+                if item['Runs from']=='false':
                     runsfrom = False
 
 

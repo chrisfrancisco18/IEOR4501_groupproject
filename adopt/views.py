@@ -54,6 +54,14 @@ def squirrel_detail(request, unique_squirrel_id):
         'squirrel': squirrel,
         'form': form
     }
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST)
+        if form.is_valid():
+            squirrel = form.save(commit = False)
+            squirrel.save()
+            return HttpResponse('Thanks for the update of squirrel data!')
+        else:
+            return JsonResponse({'errors':form.errors}, status = 400)
     
     return render(request, 'adopt/detail.html', context)
 
@@ -62,7 +70,7 @@ def squirrel_detail_update(request):
     squirrel = SquirrelTest.objects.get
     if request.method == 'GET':
         form = SquirrelForm()
-      #  return render(request, 'adopt/'<str:unique_squirrel_id>/'', {'form': form})
+        return render(request, 'adopt/update.html', {'form': form})
         
     elif request.method == 'POST':
         form = SquirrelForm(request.POST)
@@ -112,7 +120,7 @@ def stat_acts(request):
     eatings = squirrels_obj.filter(eating=True)
     foragings = squirrels_obj.filter(foraging=True)
     
-    # print(type(runnings))
+    print(runnings == chasings)
     
     found_run = False
     run_avg_lat = 0.0
@@ -120,6 +128,7 @@ def stat_acts(request):
     if runnings:
         found_run = True
         run_avg_lat, run_avg_log = stat_acts_helper(runnings)
+        pic_run = stat_acts_hist(runnings)
         
     found_chase = False
     chase_avg_lat = 0.0
@@ -127,6 +136,7 @@ def stat_acts(request):
     if chasings:
         found_chase = True
         chase_avg_lat, chase_avg_log = stat_acts_helper(chasings)
+        pic_chase = stat_acts_hist(chasings)
         
     found_climb = False
     climb_avg_lat = 0.0
@@ -134,6 +144,7 @@ def stat_acts(request):
     if climbings:
         found_climb = True
         climb_avg_lat, climb_avg_log = stat_acts_helper(climbings)
+        pic_climb = stat_acts_hist(climbings)
     
     found_eat = False
     eat_avg_lat = 0.0
@@ -141,6 +152,7 @@ def stat_acts(request):
     if eatings:
         found_eat = True
         eat_avg_lat, eat_avg_log = stat_acts_helper(eatings)
+        pic_eat = stat_acts_hist(eatings)
         
     found_forage = False
     forage_avg_lat = 0.0
@@ -148,28 +160,34 @@ def stat_acts(request):
     if foragings:
         found_forage = True
         forage_avg_lat, forage_avg_log = stat_acts_helper(foragings)
+        pic_forage = stat_acts_hist(foragings)
         
     context = {
         'runnings':runnings,
         'found_run':found_run,
         'run_avg_lat':run_avg_lat,
         'run_avg_log':run_avg_log,
+        'pic_run':pic_run,
         'chasings':chasings,
         'found_chase':found_chase,
         'chase_avg_lat':chase_avg_lat,
         'chase_avg_log':chase_avg_log,
+        'pic_chase':pic_chase,
         'climbings':climbings,
         'found_climb':found_climb,
         'climb_avg_lat':climb_avg_lat,
         'climb_avg_log':climb_avg_log,
+        'pic_climb':pic_climb,
         'eatings':eatings,
         'found_eat':found_eat,
         'eat_avg_lat':eat_avg_lat,
         'eat_avg_log':eat_avg_log,
+        'pic_eat':pic_eat,
         'foragings':foragings,
         'found_forage':found_forage,
         'forage_avg_lat':forage_avg_lat,
         'forage_avg_log':forage_avg_log,
+        'pic_forage':pic_forage,
     }
     
     # stat_acts_hist(chasings)
@@ -195,23 +213,9 @@ import pandas as pd
 import io
 import urllib, base64
 
-def stat_acts_hist(request):
-    squirrels_obj = SquirrelTest.objects
-
-    # cannot use get_list_or_404 because it raises an error if the list is empty
-    #runnings = get_list_or_404(Squirrel, Running=True)
-    #chasings = get_list_or_404(Squirrel, Chasing=True)
-    #climbings = get_list_or_404(Squirrel, Climbing=True)
-    #eatings = get_list_or_404(Squirrel, Eating=True)
-    #foragings = get_list_or_404(Squirrel, Foraging=True)
-
-    runnings = squirrels_obj.filter(running=True)
-    chasings = squirrels_obj.filter(chasing=True)
-    climbings = squirrels_obj.filter(climbing=True)
-    eatings = squirrels_obj.filter(eating=True)
-    foragings = squirrels_obj.filter(foraging=True)
-
-    list_ = chasings
+#def stat_acts_hist(request):
+def stat_acts_hist(list_):
+    print(list_)
     if not list_:
         raise InputError()
     else:
@@ -230,6 +234,5 @@ def stat_acts_hist(request):
         buf.seek(0)
         string = base64.b64encode(buf.read())
         uri = urllib.parse.quote(string)
-        return render(request, 'adopt/test.html', {'data':uri})
-        # print(plt.savefig('image.jpg'))
+        return uri
 

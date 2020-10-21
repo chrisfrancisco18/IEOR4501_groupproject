@@ -5,6 +5,7 @@
       {% if found_run == True %}
       <p>Mean Latitude = {{ run_avg_lat }}
          Mean Longitude = {{ run_avg_log }}</p>
+      <img src="data:image/jpg;base64,{{ pic_run }}" alt="">
       {% else %}
       <p>No squirrels are found while they are running</p>
       {% endif %}
@@ -14,6 +15,7 @@
       {% if found_chase == True %}
       <p>Mean Latitude = {{ chase_avg_lat }}
          Mean Longitude = {{ chase_avg_log }}</p>
+      <img src="data:image/jpg;base64,{{ pic_chase }}" alt="">
       {% else %}
       <p>No squirrels are found while they are chasing</p>
       {% endif %}
@@ -23,6 +25,7 @@
       {% if found_climb == True %}
       <p>Mean Latitude = {{ climb_avg_lat }}
          Mean Longitude = {{ climb_avg_log }}</p>
+      <img src="data:image/jpg;base64,{{ pic_climb }}" alt="">
       {% else %}
       <p>No squirrels are found while they are climbing</p>
       {% endif %}
@@ -32,6 +35,7 @@
       {% if found_eat == True %}
       <p>Mean Latitude = {{ eat_avg_lat }}
          Mean Longitude = {{ eat_avg_log }}</p>
+      <img src="data:image/jpg;base64,{{ pic_eat }}" alt="">
       {% else %}
       <p>No squirrels are found while they are eating</p>
       {% endif %}
@@ -41,6 +45,7 @@
       {% if found_forage == True %}
       <p>Mean Latitude = {{ forage_avg_lat }}
          Mean Longitude = {{ forage_avg_log }}</p>
+      <img src="data:image/jpg;base64,{{ pic_forage }}" alt="">
       {% else %}
       <p>No squirrels are found while they are foraging</p>
       {% endif %}
