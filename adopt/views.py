@@ -64,23 +64,6 @@ def squirrel_detail(request, unique_squirrel_id):
     return render(request, 'adopt/detail.html', context)
 
 
-def squirrel_detail_update(request):
-    squirrel = SquirrelTest.objects.get
-    if request.method == 'GET':
-        form = SquirrelForm()
-        return render(request, 'adopt/update.html', {'form': form})
-        
-    elif request.method == 'POST':
-        form = SquirrelForm(request.POST)
-        if form.is_valid():
-            squirrel = form.save(commit = False)
-            squirrel.save()
-            return HttpResponse('Thanks for the update of squirrel data!')
-        else:
-            return JsonResponse({'errors':form.errors}, status = 400)
-
-    return JsonResponse({}, status=405)
-
 # Fourth view /sightings/add
 def sightings_add(request):
     if request.method == 'GET':
