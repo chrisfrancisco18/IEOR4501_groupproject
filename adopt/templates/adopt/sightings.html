@@ -7,7 +7,9 @@
 {% block main %}
   <div class="album py-5 bg-light">
     <div class="container">
-	<a href="http://34.86.136.108/sightings/add">Click to add squirrel sighting</a>
+	<div class="btn-group">
+                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'adopt:sightings_add' %}">Clicking for adding squirrel sighting.</a>
+                </div>
       <div class="row">
         {% for squirrel in squirrels %}
           <div class="card mb-4 shadow-sm" "d-flex">
@@ -31,6 +33,9 @@
         {% endfor %}
       </div>
     </div>
+    <div class="btn-group">
+                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'adopt:sightings_add' %}">Clicking for adding squirrel sighting.</a>
+                </div>
     </div>
   </div>
 {% endblock %}
